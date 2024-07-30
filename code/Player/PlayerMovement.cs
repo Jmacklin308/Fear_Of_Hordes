@@ -20,6 +20,9 @@ public sealed class PlayerMovement : Component
 	[Property] private GameObject _body { get; set; }
 
 
+	[Property] private float _rotationSpeed = 20.0f;
+
+
 	//member vairalbes
 	public Vector3 WishVelocity = Vector3.Zero;
 	public bool isCrouching = false;
@@ -42,6 +45,8 @@ public sealed class PlayerMovement : Component
 		//set sprinting and crouching state
 		isCrouching = Input.Down( "Crouch" );
 		isSprinting = Input.Down( "Run" );
+
+		RotateBody();
 
 	}
 
@@ -108,6 +113,22 @@ public sealed class PlayerMovement : Component
 		{
 			_charController.Velocity = _charController.Velocity.WithZ( 0 );
 		}
+	}
+
+	private void RotateBody()
+	{
+		if ( _body is null ) return;
+
+		var targetAngle = new Angles( 0, _head.Transform.Rotation.Yaw(), 0 ).ToRotation();
+		float rotateDifference = _body.Transform.Rotation.Distance( targetAngle );
+
+		if ( rotateDifference > 50f || _charController.Velocity.Length > 10f )
+		{
+			_body.Transform.Rotation = Rotation.Lerp( _body.Transform.Rotation, targetAngle, Time.Delta * _rotationSpeed );
+		}
+
+
+
 	}
 
 }

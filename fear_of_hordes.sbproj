@@ -213,10 +213,26 @@
           "KeyboardCode": "enter",
           "GamepadCode": "None",
           "GroupName": "Other"
+        },
+        {
+          "Name": "SwitchShoulder",
+          "KeyboardCode": "MOUSE3",
+          "GamepadCode": "SwitchLeftBumper",
+          "GroupName": "Other"
         }
       ],
       "__guid": "f8247182-9c10-4c65-95af-66c2367bd898"
     },
-    "LaunchMode": "Normal"
+    "LaunchMode": "Normal",
+    "Compiler": {
+      "RootNamespace": "Sandbox",
+      "DefineConstants": "SANDBOX;ADDON;DEBUG",
+      "NoWarn": "1701;1702;1591;",
+      "WarningsAsErrors": "",
+      "Whitelist": true,
+      "AssemblyReferences": [],
+      "IgnoreFolders": [],
+      "DistinctAssemblyReferences": []
+    }
   }
 }
