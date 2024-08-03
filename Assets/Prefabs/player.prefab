@@ -903,14 +903,14 @@
             "ExposureCompensation": 0,
             "ExposureMethod": "RGB",
             "MaximumExposure": 2,
-            "MinimumExposure": 1,
+            "MinimumExposure": 0.78,
             "Mode": "Legacy",
             "Rate": 1
           },
           {
             "__type": "Sandbox.Sharpen",
             "__guid": "0bffee5e-19f2-41c4-88f9-faefbcce6bf4",
-            "Scale": 0.66
+            "Scale": 0
           },
           {
             "__type": "CameraMovement",
